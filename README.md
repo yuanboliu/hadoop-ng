@@ -5,3 +5,6 @@
 [![Build Status](https://travis-ci.org/yuanboliu/hadoop-ng.svg?branch=master)](https://travis-ci.org/yuanboliu/hadoop-ng)
 
 Next Generation of Hadoop
+
+## Design docs
+[Online Docs](https://docs.google.com/document/d/1x867LJu95Yu8LZZvALPHrYtdWM-vrFAfEbpQh-YuqEc/edit?usp=sharing)
