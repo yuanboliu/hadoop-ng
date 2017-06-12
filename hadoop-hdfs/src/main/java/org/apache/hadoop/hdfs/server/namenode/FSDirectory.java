@@ -17,16 +17,35 @@
  */
 package org.apache.hadoop.hdfs.server.namenode;
 
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.ThreadCollection;
+import org.apache.hadoop.hdfs.server.namenode.inode.INodeDirectory;
 import org.apache.hadoop.hdfs.server.namenode.inode.INodeId;
+import org.apache.hadoop.hdfs.util.DFSUtils;
+import org.apache.hadoop.util.StringUtils;
 
 public class FSDirectory implements ThreadCollection {
 
+  final static byte[] ROOT_NAME = StringUtils.string2Bytes("nn1");
+  private static INodeDirectory createRoot() {
+    return new INodeDirectory(INodeId.ROOT_INODE_ID, ROOT_NAME, 0L, 0L);
+  }
+
+  public static byte[][] getPathNameBytes(String path) {
+    if (path == null || !path.startsWith(Path.SEPARATOR)) {
+      throw new AssertionError("Absolute path required, but got '"
+          + path + "'");
+    }
+    return DFSUtils.getPathComponents(path);
+  }
+
   private final FSNameSystem nameSystem;
   private final INodeId iNodeId = new INodeId();
+  private final INodeDirectory rootDir;
 
   FSDirectory(FSNameSystem nameSystem) {
     this.nameSystem = nameSystem;
+    this.rootDir = createRoot();
   }
 
   /** Allocate a new inode ID. */

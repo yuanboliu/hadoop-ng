@@ -17,12 +17,19 @@
  */
 package org.apache.hadoop.util;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 /**
  * General string utils
  */
 public class StringUtils {
+
+  // Using the charset canonical name for String/byte[] conversions is much
+  // more efficient due to use of cached encoders/decoders.
+  private static final String UTF8_CSN = StandardCharsets.UTF_8.name();
+
   /**
    * Converts all of the characters in this String to upper case with
    * Locale.ENGLISH.
@@ -32,6 +39,18 @@ public class StringUtils {
    */
   public static String toUpperCase(String str) {
     return str.toUpperCase(Locale.ENGLISH);
+  }
+
+  /**
+   * Converts a string to a byte array using UTF8 encoding.
+   */
+  public static byte[] string2Bytes(String str) {
+    try {
+      return str.getBytes(UTF8_CSN);
+    } catch (UnsupportedEncodingException e) {
+      // should never happen!
+      throw new IllegalArgumentException("UTF8 decoding is not supported", e);
+    }
   }
 
 }

@@ -35,7 +35,7 @@ public class INodeFile extends INode {
   // BlockInfo contains info where the replicas of the block are.
   BlockCollection<BlockInfo> blocks = new BlockCollection<BlockInfo>();
 
-  INodeFile(long id, String name, short replication,
+  INodeFile(long id, byte[] name, short replication,
       long modificationTime, long accessTime) {
     super(id, name, replication, modificationTime, accessTime);
   }

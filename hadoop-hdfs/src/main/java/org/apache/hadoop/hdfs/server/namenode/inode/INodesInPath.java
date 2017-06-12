@@ -17,11 +17,5 @@
  */
 package org.apache.hadoop.hdfs.server.namenode.inode;
 
-public class LinkedINodeFile extends INodeFile {
-
-  LinkedINodeFile(long id, byte[] name, short replication,
-      long modificationTime, long accessTime) {
-    super(id, name, replication, modificationTime, accessTime);
-  }
-
+public class INodesInPath {
 }

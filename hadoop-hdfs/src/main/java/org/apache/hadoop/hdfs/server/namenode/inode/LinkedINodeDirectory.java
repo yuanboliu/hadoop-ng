@@ -19,7 +19,7 @@ package org.apache.hadoop.hdfs.server.namenode.inode;
 
 public class LinkedINodeDirectory extends INodeDirectory {
 
-  LinkedINodeDirectory(long id, String name, long modificationTime,
+  LinkedINodeDirectory(long id, byte[] name, long modificationTime,
       long accessTime) {
     super(id, name, modificationTime, accessTime);
   }

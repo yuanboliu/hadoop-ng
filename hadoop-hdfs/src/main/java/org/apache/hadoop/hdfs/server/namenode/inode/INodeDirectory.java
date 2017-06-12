@@ -37,8 +37,14 @@ public class INodeDirectory extends INode {
   private final List<INode> children =
       new ArrayList<INode>(DEFAULT_FILES_PER_DIRECTORY);
 
-  INodeDirectory(long id, String name, long modificationTime, long accessTime) {
+  public INodeDirectory(long id, byte[] name, long modificationTime,
+      long accessTime) {
     super(id, name, (short) 0, modificationTime, accessTime);
+  }
+
+  public void addChild(INode node) {
+    node.setParent(this);
+    children.add(node);
   }
 
   @Override

@@ -26,16 +26,24 @@ public abstract class INode implements INodeAttr {
 
   // INods's id and name are immutable once they're given.
   private final long id;
-  private final String name;
+  private final byte[] name;
 
 
-  INode(long id, String name, short replication,
+  INode(long id, byte[] name, short replication,
       long modificationTime, long accessTime) {
     this.id = id;
     this.name = name;
     this.replication = replication;
     this.modificationTime = modificationTime;
     this.accessTime = accessTime;
+  }
+
+  public void setParent(INodeDirectory parent) {
+    this.parent = parent;
+  }
+
+  public INode getParent() {
+    return this.parent;
   }
 
   /**
@@ -61,7 +69,7 @@ public abstract class INode implements INodeAttr {
    *
    * @return String.
    */
-  public String getName() {
+  public byte[] getName() {
     return this.name;
   }
 
