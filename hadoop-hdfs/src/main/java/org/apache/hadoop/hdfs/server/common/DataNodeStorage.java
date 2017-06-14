@@ -20,7 +20,7 @@ package org.apache.hadoop.hdfs.server.common;
 import java.util.UUID;
 
 /**
- * Class captures information of a storage in Datanode.
+ * Class captures information of a storage in DataNode.
  */
 public class DataNodeStorage {
   /** The state of the storage. */
@@ -46,20 +46,18 @@ public class DataNodeStorage {
 
   private final String storageID;
   private final State state;
-  private final StorageType storageType;
   private static final String STORAGE_ID_PREFIX = "DS-";
 
   /**
-   * Create a storage with {@link State#NORMAL} and {@link StorageType#DEFAULT}.
+   * Create a storage with {@link State#NORMAL}
    */
   public DataNodeStorage(String storageID) {
-    this(storageID, State.NORMAL, StorageType.DEFAULT);
+    this(storageID, State.NORMAL);
   }
 
-  public DataNodeStorage(String sid, State s, StorageType sm) {
+  public DataNodeStorage(String sid, State s) {
     this.storageID = sid;
     this.state = s;
-    this.storageType = sm;
   }
 
   public String getStorageID() {
@@ -68,10 +66,6 @@ public class DataNodeStorage {
 
   public State getState() {
     return state;
-  }
-
-  public StorageType getStorageType() {
-    return storageType;
   }
 
   /**
@@ -102,7 +96,7 @@ public class DataNodeStorage {
 
   @Override
   public String toString() {
-    return "DatanodeStorage["+ storageID + "," + storageType + "," + state +"]";
+    return "DatanodeStorage["+ storageID + "," + state +"]";
   }
 
   @Override

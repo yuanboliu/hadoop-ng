@@ -54,6 +54,13 @@ public abstract class INode implements INodeAttr {
   }
 
   /**
+   * Check whether it's a linked file/directory.
+   */
+  public boolean isLinked() {
+    return false;
+  }
+
+  /**
    * Check whether it's a directory
    */
   public boolean isDirectory() {
@@ -80,6 +87,14 @@ public abstract class INode implements INodeAttr {
 
   public INodeDirectory asDirectory() {
     throw new IllegalStateException("Current inode is not a directory");
+  }
+
+  public LinkedINodeFile asLinkedFile() {
+    throw new IllegalStateException("Current inode is not a linked file");
+  }
+
+  public LinkedINodeDirectory asLinkedDirectory() {
+    throw new IllegalStateException("Current inode is not a linked directory");
   }
 
   public long getModificationTime() {

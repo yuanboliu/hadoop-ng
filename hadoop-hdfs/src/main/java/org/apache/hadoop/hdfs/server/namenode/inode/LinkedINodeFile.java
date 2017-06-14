@@ -24,4 +24,14 @@ public class LinkedINodeFile extends INodeFile {
     super(id, name, replication, modificationTime, accessTime);
   }
 
+  @Override
+  public boolean isLinked() {
+    return true;
+  }
+
+  @Override
+  public LinkedINodeFile asLinkedFile() {
+    return this;
+  }
+
 }

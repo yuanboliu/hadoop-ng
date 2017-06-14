@@ -18,6 +18,8 @@
     <junit.version>4.11</junit.version>
     <common.lang.version>2.6</common.lang.version>
     <guava.version>11.0.2</guava.version>
+    <stax2.version>3.1.4</stax2.version>
+    <woodstox.version>5.0.3</woodstox.version>
   </properties>
 
   <build>

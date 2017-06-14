@@ -23,4 +23,9 @@ public class LinkedINodeDirectory extends INodeDirectory {
       long accessTime) {
     super(id, name, modificationTime, accessTime);
   }
+
+  @Override
+  public LinkedINodeDirectory asLinkedDirectory() {
+    return this;
+  }
 }

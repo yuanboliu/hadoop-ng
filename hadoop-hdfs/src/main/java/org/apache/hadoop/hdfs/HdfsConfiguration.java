@@ -18,5 +18,12 @@
 
 package org.apache.hadoop.hdfs;
 
-public class HdfsConfiguration {
+import org.apache.hadoop.conf.Configuration;
+
+public class HdfsConfiguration extends Configuration {
+  static {
+    // Add default resources.
+    Configuration.addDefaultResource("hdfs-default.xml");
+    Configuration.addDefaultResource("hdfs-site.xml");
+  }
 }

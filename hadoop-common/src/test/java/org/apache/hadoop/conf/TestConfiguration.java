@@ -17,8 +17,23 @@
  */
 package org.apache.hadoop.conf;
 
+import org.junit.After;
+import org.junit.Before;
+
 /**
  * Tests again for Configuration.java.
  */
 public class TestConfiguration {
+
+  private Configuration conf;
+
+  @Before
+  public void setup() throws Exception {
+    conf = new Configuration();
+  }
+
+  @After
+  public void teardown() throws Exception {
+
+  }
 }
